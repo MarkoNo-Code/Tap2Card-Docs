@@ -17,11 +17,9 @@ diese Datei werden per `_config.yml` nicht mit ausgeliefert.
 
 ## 2. Store-Material
 
-- [ ] `app-icon.html`, `feature-graphic.html`, `feature-graphic-screenshot.jpeg`,
-      `presentation-graphic*.png` liegen **ungetrackt** im Wurzelverzeichnis und
-      wurden bewusst nicht mit committet — sie sind keine Website und würden
-      sonst öffentlich ausgeliefert. Besser nach
-      `Claude-Projects/PlayStore-AppStore-Files/` verschieben.
+Liegt nicht in diesem Repo: App-Icon-, Feature- und Präsentationsgrafiken sind
+am 11.09.2026 nach `Claude-Projects/PlayStore-AppStore-Files/Tap2Card-Graphics/`
+gewandert (nicht versioniert). Hier nur, was öffentlich ausgeliefert werden soll.
 
 ## 3. Inhaltlich noch offen
 
