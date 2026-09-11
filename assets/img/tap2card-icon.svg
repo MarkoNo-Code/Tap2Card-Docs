@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1254 1254" width="1254" height="1254">
+  <!-- Deviates from Tap2Card/Design/Logo/handshake-logo-weiss.svg on purpose: the
+       source carries its own rounded corners and a transparent margin, which read
+       as an icon sitting inside the tile. Full-bleed and square here, so the
+       .project__mark tile does the rounding and both app icons crop identically. -->
+  <rect width="1254" height="1254" fill="#05556F"/>
+  <!-- Weisse Hand -->
+  <polygon fill="#F8F8F7" points="
+    152.5,547 339.5,734.5 412.5,661.5 657.5,906.5 593,971 650,1028
+    697,981 658.5,942.5 676,925 715,964 765.5,913 726.5,874 744,857
+    782.5,895 829.5,848 791.5,809.5 808.5,792.5 847,831 894.5,784
+    680,569.5 606.5,643 532,643 458,569 613.5,413 422.5,413 354.5,345"/>
+  <!-- Orange Hand inkl. Daumenkeil -->
+  <polygon fill="#F8F8F7" points="
+    905,342 834,413 655,413 497,571 542.5,617 596.5,617 681,532
+    897,748 1104,541"/>
+  <!-- Orange Fingerspitzen -->
+  <polygon fill="#F8F8F7" points="334,773 371.5,810.5 450.5,731.5 413,694"/>
+  <polygon fill="#F8F8F7" points="390.5,829.5 428,867 507,788 469.5,750.5"/>
+  <polygon fill="#F8F8F7" points="448,885 486,923 563,845 525,807"/>
+  <polygon fill="#F8F8F7" points="505,942 544.5,981 621,904 582,865"/>
+</svg>

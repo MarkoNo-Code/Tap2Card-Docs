@@ -1,243 +1,330 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="auto">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Tap2Card App</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f8f9fa;
-            color: #333;
-        }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 3px solid #2563EB;
-        }
-        .app-icon {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, #2563EB, #60A5FA);
-            border-radius: 16px;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            color: white;
-            font-weight: bold;
-        }
-        h1 {
-            color: #2563EB;
-            margin: 0;
-            font-size: 2.2em;
-        }
-        h2 {
-            color: #1D4ED8;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            font-size: 1.4em;
-            border-left: 4px solid #2563EB;
-            padding-left: 15px;
-        }
-        .highlight {
-            background-color: #EFF6FF;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid #2563EB;
-            margin: 20px 0;
-        }
-        .permission-box {
-            background: #FEF3C7;
-            border: 1px solid #FCD34D;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 15px 0;
-        }
-        .contact-info {
-            background: #F0F9FF;
-            border: 1px solid #7DD3FC;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 8px;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #e5e7eb;
-            color: #6b7280;
-            font-size: 0.9em;
-        }
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-            .container {
-                padding: 20px;
-            }
-            h1 {
-                font-size: 1.8em;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Privacy Policy — Tap2Card</title>
+<meta name="description" content="Privacy policy for Tap2Card, the digital business card app: what data is collected, which permissions are used, how data is stored and how to delete your account.">
+<meta name="author" content="Marko Nonninger">
+<link rel="canonical" href="https://markono-code.github.io/Tap2Card-Docs/privacy-policy.html">
+
+<link rel="alternate" hreflang="en" href="https://markono-code.github.io/Tap2Card-Docs/privacy-policy.html">
+<link rel="alternate" hreflang="de" href="https://markono-code.github.io/Tap2Card-Docs/datenschutzerklaerung.html">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://markono-code.github.io/Tap2Card-Docs/privacy-policy.html">
+<meta property="og:title" content="Privacy Policy — Tap2Card">
+<meta property="og:description" content="What data Tap2Card collects, how it is used, and how to delete your account.">
+
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101b21" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/docs.css">
+
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("markono.theme");
+      if (t === "light" || t === "dark" || t === "auto") {
+        document.documentElement.setAttribute("data-theme", t);
+      }
+    } catch (e) { /* private mode — the "auto" default in the markup stands */ }
+  })();
+</script>
 </head>
+
 <body>
-    <div class="container">
-        <a href="index.html" style="display: inline-block; padding: 15px 20px; color: #2563EB; text-decoration: none; font-weight: 500;">&larr; Back to Documentation</a>
-        <div class="header">
-            <div class="app-icon">T</div>
-            <h1>Privacy Policy</h1>
-            <p><strong>Tap2Card - Digital Business Card App</strong></p>
-            <p>Last updated: March 15, 2026</p>
-        </div>
 
-        <div class="highlight">
-            <strong>Summary:</strong> The Tap2Card app only collects data that you consciously enter (business card information, profile pictures). We do not sell your data and do not share it without your consent.
-        </div>
+<a class="skip-link" href="#main">Skip to content</a>
 
-        <h2>1. Data Controller</h2>
-        <div class="contact-info">
-            <p><strong>Marko Nonninger</strong><br>
-            Developer of the Tap2Card App<br>
-            Germany</p>
-            <p><strong>Contact:</strong> Via Google Play Store app reviews or GitHub Issues</p>
-        </div>
+<!-- ============================================================ HEADER ==== -->
+<header class="site-header">
+  <div class="shell site-header__inner">
 
-        <h2>2. What Data Do We Collect?</h2>
-        <p>The Tap2Card app collects the following data:</p>
+    <a class="brand" href="./" aria-label="Tap2Card documentation — home">
+      <img class="brand__logo" src="assets/img/tap2card-icon.svg" alt="" width="30" height="30">
+      <span>
+        <span class="brand__text">Tap2Card</span>
+        <span class="brand__sub">Legal &amp; Privacy</span>
+      </span>
+    </a>
 
-        <h3>Data you provide:</h3>
-        <ul>
-            <li><strong>Business card information:</strong> Name, job title, company, email address, phone number, website, address</li>
-            <li><strong>Profile pictures:</strong> Photos for your digital business card</li>
-            <li><strong>Received business cards:</strong> Contact details from other users shared via NFC, QR code, or link</li>
-        </ul>
+    <div class="header-tools">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <a class="lang-switch__btn" href="privacy-policy.html" hreflang="en" aria-current="true">EN</a>
+        <a class="lang-switch__btn" href="datenschutzerklaerung.html" hreflang="de">DE</a>
+      </div>
 
-        <h3>Technical data:</h3>
-        <ul>
-            <li><strong>Account information:</strong> Email address for authentication</li>
-            <li><strong>Device information:</strong> Android version, app version</li>
-        </ul>
-
-        <h2>3. App Permissions</h2>
-        <p>The app requires the following permissions:</p>
-
-        <div class="permission-box">
-            <h3>NFC Permission</h3>
-            <p><strong>Purpose:</strong> Enables sharing and receiving business cards by tapping two devices together or writing to NFC tags</p>
-            <p><strong>Usage:</strong> NFC is only activated when you use the Tap-to-Share or Write-to-Tag feature</p>
-        </div>
-
-        <div class="permission-box">
-            <h3>Camera Permission</h3>
-            <p><strong>Purpose:</strong> Enables scanning QR codes to receive business cards and taking profile pictures</p>
-            <p><strong>Usage:</strong> The camera is only activated when you use the QR scanner or profile picture feature</p>
-        </div>
-
-        <div class="permission-box">
-            <h3>Internet Permission</h3>
-            <p><strong>Purpose:</strong> Synchronization of your business card data with the cloud backend</p>
-            <p><strong>Usage:</strong> For authentication, data storage, and sharing business cards via links</p>
-        </div>
-
-        <h2>4. How Do We Use Your Data?</h2>
-        <ul>
-            <li><strong>App functionality:</strong> To create, store, and share your digital business card</li>
-            <li><strong>Contact management:</strong> Storing received business cards in your personal contact list</li>
-            <li><strong>Sharing:</strong> Providing your business card via NFC, QR code, or shareable links</li>
-            <li><strong>Support:</strong> Resolving technical issues</li>
-        </ul>
-
-        <h2>5. Data Sharing</h2>
-        <p><strong>We do not sell your data!</strong></p>
-        <p>Your data is only shared in the following cases:</p>
-        <ul>
-            <li><strong>Business card exchange:</strong> When you consciously share your business card with other users (via NFC, QR code, or link)</li>
-            <li><strong>Technical service providers:</strong> Only for app operation (Supabase for backend services and data storage)</li>
-            <li><strong>Legal requirements:</strong> When required by law</li>
-        </ul>
-
-        <h2>6. Data Security</h2>
-        <ul>
-            <li>Encrypted data transmission (HTTPS/TLS)</li>
-            <li>Secure cloud infrastructure (Supabase)</li>
-            <li>Row Level Security (RLS) to protect your data from unauthorized access</li>
-            <li>Local data storage on your device</li>
-            <li>No storage of sensitive payment data</li>
-        </ul>
-
-        <h2>7. Your Rights</h2>
-        <p>You have the following rights regarding your data:</p>
-        <ul>
-            <li><strong>Access:</strong> Information about stored data</li>
-            <li><strong>Rectification:</strong> Correction of incorrect data</li>
-            <li><strong>Erasure:</strong> Deletion of your data</li>
-            <li><strong>Data portability:</strong> Export of your data</li>
-            <li><strong>Objection:</strong> Objection to data processing</li>
-        </ul>
-
-        <h2>8. Changes to This Privacy Policy</h2>
-        <p>We may update this privacy policy from time to time. Changes will be announced in the app and on this page.</p>
-
-        <h2>9. Account and Data Deletion</h2>
-        <div class="highlight">
-            <p><strong>You have the right to completely delete your account and all associated data at any time.</strong></p>
-        </div>
-
-        <h3>How to delete your account:</h3>
-        <ul>
-            <li><strong>In the app (recommended):</strong> Go to <strong>Settings &rarr; Delete account</strong> and confirm</li>
-            <li><strong>By email request:</strong> If you can no longer access the app, contact us through the channels listed below</li>
-            <li><strong>30-day grace period:</strong> Your account is scheduled for deletion and you are signed out. For 30 days you can cancel by simply signing in again; after that it is permanently deleted</li>
-        </ul>
-        <p>See our <a href="delete-account/">account deletion page</a> for full details.</p>
-
-        <h3>What will be deleted:</h3>
-        <ul>
-            <li>Your user account and login credentials</li>
-            <li>Your created business card and all associated information</li>
-            <li>Uploaded profile pictures</li>
-            <li>Received business cards in your contact list</li>
-            <li>All other data associated with your account</li>
-        </ul>
-
-        <div class="contact-info">
-            <p><strong>Important notice:</strong> Deletion is irreversible. After deletion, your data cannot be recovered.</p>
-        </div>
-
-        <h2>10. Contact</h2>
-        <div class="contact-info">
-            <p>For questions about this privacy policy, your data, or deletion requests, contact us:</p>
-            <ul>
-                <li>Email: <a href="mailto:tap2card@markono.dev">tap2card@markono.dev</a></li>
-                <li>Via Google Play Store reviews</li>
-            </ul>
-            <p><strong>For account deletions:</strong> Please provide your registered email address so we can uniquely identify your account.</p>
-        </div>
-
-        <div class="footer">
-            <p>&copy; 2026 Tap2Card App by Marko Nonninger. This privacy policy was created for compliance with Google Play Store guidelines.</p>
-            <p>Last updated: March 15, 2026</p>
-        </div>
+      <button type="button" class="icon-btn" id="themeToggle"
+              aria-label="Colour theme: automatic" title="Colour theme: automatic">
+        <svg class="icon icon--sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="4.2"/>
+          <path d="M12 2.2v2.4M12 19.4v2.4M2.2 12h2.4M19.4 12h2.4M5.1 5.1l1.7 1.7M17.2 17.2l1.7 1.7M18.9 5.1l-1.7 1.7M6.8 17.2l-1.7 1.7"/>
+        </svg>
+        <svg class="icon icon--moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M20.5 14.8A8.6 8.6 0 0 1 9.2 3.5a8.6 8.6 0 1 0 11.3 11.3z"/>
+        </svg>
+      </button>
     </div>
+
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ========================================================== HERO ==== -->
+  <section class="doc-hero doc-hero--doc">
+    <div class="shell doc-hero__inner">
+      <a class="backlink" href="./">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M19 12H6M11.5 5.5 5 12l6.5 6.5"/>
+        </svg>
+        Back to documentation
+      </a>
+
+      <p class="kicker kicker--onDark">Privacy</p>
+      <h1>Privacy Policy</h1>
+      <p class="doc-hero__lead">
+        Tap2Card — digital business card app for Android and iOS. This policy
+        describes what the app collects, why it needs each permission, and what
+        you can do about it.
+      </p>
+
+      <div class="doc-meta">
+        <span class="doc-meta__item">
+          <span class="doc-meta__key">Last updated</span>
+          <span class="doc-meta__val"><time datetime="2026-09-09">9 September 2026</time></span>
+        </span>
+        <span class="doc-meta__item">
+          <span class="doc-meta__key">Applies to</span>
+          <span class="doc-meta__val">Android &amp; iOS</span>
+        </span>
+        <span class="doc-meta__item">
+          <span class="doc-meta__key">Language</span>
+          <span class="doc-meta__val">English · <a href="datenschutzerklaerung.html" hreflang="de">Deutsch</a></span>
+        </span>
+        <span class="doc-meta__item">
+          <span class="doc-meta__key">Contact</span>
+          <span class="doc-meta__val"><a href="mailto:tap2card@markono.dev">tap2card@markono.dev</a></span>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================== BODY ==== -->
+  <div class="shell doc-layout">
+
+    <!-- Contents rail ------------------------------------------------- -->
+    <aside class="toc" aria-labelledby="toc-title">
+      <p class="toc__title" id="toc-title">Contents</p>
+      <nav class="toc__list">
+        <a class="toc__link" href="#controller"><span class="toc__num">01</span>Data Controller</a>
+        <a class="toc__link" href="#collected"><span class="toc__num">02</span>What data we collect</a>
+        <a class="toc__link" href="#permissions"><span class="toc__num">03</span>App permissions</a>
+        <a class="toc__link" href="#usage"><span class="toc__num">04</span>How we use your data</a>
+        <a class="toc__link" href="#sharing"><span class="toc__num">05</span>Data sharing</a>
+        <a class="toc__link" href="#security"><span class="toc__num">06</span>Data security</a>
+        <a class="toc__link" href="#rights"><span class="toc__num">07</span>Your rights</a>
+        <a class="toc__link" href="#changes"><span class="toc__num">08</span>Changes to this policy</a>
+        <a class="toc__link" href="#deletion"><span class="toc__num">09</span>Account and data deletion</a>
+        <a class="toc__link" href="#contact"><span class="toc__num">10</span>Contact</a>
+      </nav>
+    </aside>
+
+    <!-- The policy ----------------------------------------------------- -->
+    <article class="legal">
+
+      <div class="callout">
+        <span class="callout__label">Summary</span>
+        <p>
+          The Tap2Card app only collects data that you consciously enter
+          (business card information, profile pictures). We do not sell your
+          data and do not share it without your consent.
+        </p>
+      </div>
+
+      <h2 id="controller"><span class="legal__num">01</span>Data Controller</h2>
+      <div class="panel">
+        <p>
+          <strong>Marko Nonninger</strong><br>
+          Developer of the Tap2Card App<br>
+          Winterthur, Switzerland
+        </p>
+        <p><strong>Contact:</strong> <a href="mailto:tap2card@markono.dev">tap2card@markono.dev</a></p>
+      </div>
+
+      <h2 id="collected"><span class="legal__num">02</span>What Data Do We Collect?</h2>
+      <p>The Tap2Card app collects the following data:</p>
+
+      <h3>Data you provide</h3>
+      <ul>
+        <li><strong>Business card information:</strong> Name, job title, company, email address, phone number, website, address</li>
+        <li><strong>Profile pictures:</strong> Photos for your digital business card</li>
+        <li><strong>Received business cards:</strong> Contact details from other users shared via NFC, QR code, or link</li>
+      </ul>
+
+      <h3>Technical data</h3>
+      <ul>
+        <li><strong>Account information:</strong> Email address for authentication. You can sign in with an email address and password, with Sign in with Apple, or with a Google account.</li>
+        <li><strong>Device information:</strong> Operating system version (Android or iOS), app version</li>
+      </ul>
+
+      <h2 id="permissions"><span class="legal__num">03</span>App Permissions</h2>
+      <p>The app requires the following permissions:</p>
+
+      <div class="perm-grid">
+        <div class="perm-card">
+          <div class="perm-card__head">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M5.6 5.6a9 9 0 0 0 0 12.8M8.5 8.5a5 5 0 0 0 0 7M18.4 5.6a9 9 0 0 1 0 12.8M15.5 8.5a5 5 0 0 1 0 7"/>
+              <circle cx="12" cy="12" r="1.6"/>
+            </svg>
+            <h3>NFC Permission</h3>
+          </div>
+          <p><span class="perm-card__key">Purpose</span> Enables sharing and receiving business cards by tapping two devices together or writing to NFC tags. On iOS the device-to-device exchange runs over Bluetooth instead; NFC is used for writing tags.</p>
+          <p><span class="perm-card__key">Usage</span> NFC is only activated when you use the Tap-to-Share or Write-to-Tag feature</p>
+        </div>
+
+        <div class="perm-card">
+          <div class="perm-card__head">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M3.5 8.5A1.5 1.5 0 0 1 5 7h2.4l1.3-2h6.6l1.3 2H19a1.5 1.5 0 0 1 1.5 1.5v9A1.5 1.5 0 0 1 19 19H5a1.5 1.5 0 0 1-1.5-1.5z"/>
+              <circle cx="12" cy="12.8" r="3.4"/>
+            </svg>
+            <h3>Camera Permission</h3>
+          </div>
+          <p><span class="perm-card__key">Purpose</span> Enables scanning QR codes to receive business cards and taking profile pictures</p>
+          <p><span class="perm-card__key">Usage</span> The camera is only activated when you use the QR scanner or profile picture feature</p>
+        </div>
+
+        <div class="perm-card">
+          <div class="perm-card__head">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="8.6"/>
+              <path d="M3.4 12h17.2M12 3.4c2.2 2.4 3.4 5.4 3.4 8.6s-1.2 6.2-3.4 8.6c-2.2-2.4-3.4-5.4-3.4-8.6S9.8 5.8 12 3.4z"/>
+            </svg>
+            <h3>Internet Permission</h3>
+          </div>
+          <p><span class="perm-card__key">Purpose</span> Synchronization of your business card data with the cloud backend</p>
+          <p><span class="perm-card__key">Usage</span> For authentication, data storage, and sharing business cards via links</p>
+        </div>
+      </div>
+
+      <h2 id="usage"><span class="legal__num">04</span>How Do We Use Your Data?</h2>
+      <ul>
+        <li><strong>App functionality:</strong> To create, store, and share your digital business card</li>
+        <li><strong>Contact management:</strong> Storing received business cards in your personal contact list</li>
+        <li><strong>Sharing:</strong> Providing your business card via NFC, QR code, or shareable links</li>
+        <li><strong>Support:</strong> Resolving technical issues</li>
+      </ul>
+
+      <h2 id="sharing"><span class="legal__num">05</span>Data Sharing</h2>
+      <p><strong>We do not sell your data!</strong></p>
+      <p>Your data is only shared in the following cases:</p>
+      <ul>
+        <li><strong>Business card exchange:</strong> When you consciously share your business card with other users (via NFC, QR code, or link)</li>
+        <li><strong>Technical service providers:</strong> Only for app operation (Supabase for backend services and data storage)</li>
+        <li><strong>Legal requirements:</strong> When required by law</li>
+      </ul>
+
+      <h2 id="security"><span class="legal__num">06</span>Data Security</h2>
+      <ul>
+        <li>Encrypted data transmission (HTTPS/TLS)</li>
+        <li>Secure cloud infrastructure (Supabase)</li>
+        <li>Row Level Security (RLS) to protect your data from unauthorized access</li>
+        <li>Local data storage on your device</li>
+        <li>No storage of sensitive payment data</li>
+      </ul>
+
+      <h2 id="rights"><span class="legal__num">07</span>Your Rights</h2>
+      <p>You have the following rights regarding your data:</p>
+      <ul>
+        <li><strong>Access:</strong> Information about stored data</li>
+        <li><strong>Rectification:</strong> Correction of incorrect data</li>
+        <li><strong>Erasure:</strong> Deletion of your data</li>
+        <li><strong>Data portability:</strong> Export of your data</li>
+        <li><strong>Objection:</strong> Objection to data processing</li>
+      </ul>
+
+      <h2 id="changes"><span class="legal__num">08</span>Changes to This Privacy Policy</h2>
+      <p>
+        We may update this privacy policy from time to time. Changes will be
+        announced in the app and on this page.
+      </p>
+
+      <h2 id="deletion"><span class="legal__num">09</span>Account and Data Deletion</h2>
+      <div class="callout">
+        <p><strong>You have the right to completely delete your account and all associated data at any time.</strong></p>
+      </div>
+
+      <h3>How to delete your account</h3>
+      <ul>
+        <li><strong>In the app (recommended):</strong> Go to <strong>Settings &rarr; Delete account</strong> and confirm</li>
+        <li><strong>By email request:</strong> If you can no longer access the app, contact us through the channels listed below</li>
+        <li><strong>30-day grace period:</strong> Your account is scheduled for deletion and you are signed out. For 30 days you can cancel by simply signing in again; after that it is permanently deleted</li>
+        <li><strong>Sign in with Apple:</strong> if you signed in with Apple, that grant is revoked with Apple on your behalf once the deletion becomes permanent</li>
+      </ul>
+      <p>See our <a href="delete-account/">account deletion page</a> for full details.</p>
+
+      <h3>What will be deleted</h3>
+      <ul>
+        <li>Your user account and login credentials</li>
+        <li>Your created business card and all associated information</li>
+        <li>Uploaded profile pictures</li>
+        <li>Received business cards in your contact list</li>
+        <li>All other data associated with your account</li>
+      </ul>
+
+      <div class="panel panel--warn">
+        <span class="panel__label">Important notice</span>
+        <p>Deletion is irreversible. After deletion, your data cannot be recovered.</p>
+      </div>
+
+      <h2 id="contact"><span class="legal__num">10</span>Contact</h2>
+      <div class="panel">
+        <p>For questions about this privacy policy, your data, or deletion requests, contact us:</p>
+        <ul>
+          <li>Email: <a href="mailto:tap2card@markono.dev">tap2card@markono.dev</a></li>
+          <li>Via Google Play Store or App Store reviews</li>
+        </ul>
+        <p><strong>For account deletions:</strong> Please provide your registered email address so we can uniquely identify your account.</p>
+      </div>
+
+      <p class="legal__foot">
+        &copy; <span id="year">2026</span> Tap2Card App by Marko Nonninger. This privacy
+        policy was created for the requirements of Google Play and the Apple App Store.<br>
+        Last updated: <time datetime="2026-09-09">9 September 2026</time>
+      </p>
+
+    </article>
+  </div>
+
+</main>
+
+<!-- ============================================================ FOOTER ==== -->
+<footer class="site-footer">
+  <div class="shell site-footer__inner">
+    <div class="site-footer__brand">
+      <span class="brand__text">Tap2Card</span>
+      <span class="site-footer__tagline">Share your business card digitally</span>
+    </div>
+
+    <nav class="site-footer__links" aria-label="Documents">
+      <a href="./">Overview</a>
+      <a href="datenschutzerklaerung.html" lang="de">Datenschutzerklärung</a>
+      <a href="delete-account/">Delete account</a>
+      <a href="https://markono.dev/" rel="noopener">markono.dev</a>
+    </nav>
+
+    <div class="site-footer__meta">
+      <span>&copy; 2026 Marko Nonninger. All rights reserved.</span>
+      <span class="site-footer__built">Hand-built. No tracking, no cookies.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/docs.js"></script>
 </body>
 </html>

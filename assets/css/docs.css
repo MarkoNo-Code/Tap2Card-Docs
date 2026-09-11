@@ -1,0 +1,883 @@
+/* =============================================================================
+   Tap2Card — documentation stylesheet
+
+   A sibling to markono.dev, not a copy. Structure, spacing, type scale and the
+   component vocabulary (.shell, .kicker, .btn, .site-header, .site-footer) are
+   lifted from that stylesheet so the two sites read as one hand. What changes
+   is the accent: markono.dev's slate #4d6f7e gives way to the Tap2Card brand
+   teal, so these pages belong to the app while still sitting in the same family.
+
+       #05556F  teal      — brand, accent (light)
+       #56C1D9  turquoise — brand, accent (dark)
+       #2f3640  ink       — body text
+       #f4f6f8  bg-alt    — section fills
+
+   No build step, no dependencies — same rule as markono.dev. Opening the file
+   in a browser is the whole dev loop.
+
+   Teil einer Design-Familie: markono.dev, Tap2Card-Docs, Ausgetrunken-Docs teilen
+   Struktur, Komponentennamen, Token-Vokabular und Theme-Mechanik. Was sie teilen,
+   was bewusst auseinanderlaeuft und warum es KEINE gemeinsame CSS-Datei gibt,
+   steht in MarkoNoDev/docs/DESIGN_FAMILY.md. Aenderungen am Skelett gehoeren in
+   alle drei Dateien.
+
+   Structure
+     1. Tokens          — light + dark, one place
+     2. Reset & base
+     3. Layout helpers  — .shell, .kicker
+     4. Components      — buttons, icons, panels
+     5. Header & nav
+     6. Doc hero
+     7. Landing page
+     8. Legal documents — TOC, prose, permissions
+     9. Footer
+    10. Motion & print
+   ============================================================================= */
+
+/* ============================================================ 1. TOKENS ==== */
+
+:root {
+  /* Colour — light */
+  --bg:            #ffffff;
+  --bg-alt:        #f4f6f8;
+  --bg-deep:       #05556f;
+  --bg-deep-2:     #03384a;
+  --hero-bg:       #eef4f7;
+
+  --ink:           #2f3640;
+  --ink-strong:    #1b222b;
+  --muted:         #6b7683;
+
+  --line:          #e2e6ea;
+  --line-strong:   #cfd7de;
+
+  --accent:        #05556f;
+  --accent-strong: #03414f;
+  --accent-soft:   #dceaef;
+  --link:          #0a5f7c;
+
+  --on-deep:       #ffffff;
+  --on-deep-soft:  #c3dbe4;
+  --on-deep-line:  rgba(255, 255, 255, .16);
+
+  --warn:          #8a6320;
+  --warn-bg:       #f6eddc;
+  --warn-line:     #e3cfa4;
+
+  --shadow-sm:     0 1px 2px rgba(27, 34, 43, .06), 0 2px 8px rgba(27, 34, 43, .05);
+  --shadow-md:     0 2px 6px rgba(27, 34, 43, .07), 0 12px 32px rgba(27, 34, 43, .10);
+
+  /* Type — identical to markono.dev, so no webfont and no flash of fallback. */
+  --font-sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "JetBrains Mono", "Cascadia Mono",
+               Consolas, "Liberation Mono", monospace;
+
+  /* Space & shape */
+  --shell:   1120px;
+  --gutter:  clamp(1.25rem, 5vw, 3rem);
+  --radius:  14px;
+  --radius-sm: 9px;
+
+  --header-h: 68px;
+
+  color-scheme: light;
+}
+
+/* Dark palette. The inline head script writes data-theme on <html>: "light",
+   "dark" or "auto". Two selectors need it — an explicit dark choice, and "auto"
+   while the OS is dark — so the block is repeated once inside the media query.
+   Keep the two copies in sync; they are the only duplicated rules in this file. */
+:root[data-theme="light"] { color-scheme: light; }
+
+:root[data-theme="dark"] {
+  --bg:            #101b21;
+  --bg-alt:        #16242c;
+  --bg-deep:       #0a2b38;
+  --bg-deep-2:     #071e28;
+  --hero-bg:       #141f27;
+
+  --ink:           #d7e0e8;
+  --ink-strong:    #f1f6fa;
+  --muted:         #90a0ad;
+
+  --line:          #223640;
+  --line-strong:   #2f4b58;
+
+  --accent:        #56c1d9;
+  --accent-strong: #7fd4e6;
+  --accent-soft:   #12313d;
+  --link:          #6fcbe0;
+
+  --on-deep:       #f1f6fa;
+  --on-deep-soft:  #a4c3ce;
+  --on-deep-line:  rgba(255, 255, 255, .12);
+
+  --warn:          #e0b970;
+  --warn-bg:       #33280f;
+  --warn-line:     #574417;
+
+  --shadow-sm:     0 1px 2px rgba(0, 0, 0, .3), 0 2px 8px rgba(0, 0, 0, .22);
+  --shadow-md:     0 2px 6px rgba(0, 0, 0, .35), 0 12px 32px rgba(0, 0, 0, .3);
+
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="auto"] {
+    --bg:            #101b21;
+    --bg-alt:        #16242c;
+    --bg-deep:       #0a2b38;
+    --bg-deep-2:     #071e28;
+    --hero-bg:       #141f27;
+
+    --ink:           #d7e0e8;
+    --ink-strong:    #f1f6fa;
+    --muted:         #90a0ad;
+
+    --line:          #223640;
+    --line-strong:   #2f4b58;
+
+    --accent:        #56c1d9;
+    --accent-strong: #7fd4e6;
+    --accent-soft:   #12313d;
+    --link:          #6fcbe0;
+
+    --on-deep:       #f1f6fa;
+    --on-deep-soft:  #a4c3ce;
+    --on-deep-line:  rgba(255, 255, 255, .12);
+
+    --warn:          #e0b970;
+    --warn-bg:       #33280f;
+    --warn-line:     #574417;
+
+    --shadow-sm:     0 1px 2px rgba(0, 0, 0, .3), 0 2px 8px rgba(0, 0, 0, .22);
+    --shadow-md:     0 2px 6px rgba(0, 0, 0, .35), 0 12px 32px rgba(0, 0, 0, .3);
+
+    color-scheme: dark;
+  }
+}
+
+
+/* ==================================================== 2. RESET & BASE ==== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 20px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  color: var(--ink-strong);
+  line-height: 1.18;
+  font-weight: 700;
+  letter-spacing: -0.012em;
+}
+
+p { margin: 0 0 1.05em; }
+p:last-child { margin-bottom: 0; }
+
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+strong { font-weight: 700; color: var(--ink-strong); }
+
+img { max-width: 100%; height: auto; display: block; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 200;
+  background: var(--accent);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 0 0 var(--radius-sm) 0;
+  font-weight: 600;
+}
+.skip-link:focus { left: 0; text-decoration: none; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* =================================================== 3. LAYOUT HELPERS ==== */
+
+.shell {
+  width: 100%;
+  max-width: var(--shell);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section { padding-block: clamp(3rem, 7vw, 5rem); }
+.section--alt { background: var(--bg-alt); border-block: 1px solid var(--line); }
+
+/* Small mono label above a title — the "code" side of the brand, carried over
+   from markono.dev unchanged because it is the most recognisable element there. */
+.kicker {
+  font-family: var(--font-mono);
+  font-size: .74rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 .85rem;
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+}
+.kicker::before {
+  content: "";
+  width: 26px;
+  height: 2px;
+  background: currentColor;
+  flex: 0 0 auto;
+  border-radius: 2px;
+}
+.kicker--onDark { color: var(--on-deep-soft); }
+
+
+/* ======================================================= 4. COMPONENTS ==== */
+
+.icon {
+  width: 1.15em;
+  height: 1.15em;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.btn {
+  --btn-bg: transparent;
+  --btn-fg: var(--ink-strong);
+  --btn-bd: var(--line-strong);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .55em;
+  padding: .78em 1.5em;
+  border: 1px solid var(--btn-bd);
+  border-radius: 999px;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font: inherit;
+  font-size: .975rem;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease,
+              background-color .18s ease, border-color .18s ease, color .18s ease;
+}
+.btn:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+.btn:active { transform: translateY(0); }
+
+.btn--primary {
+  --btn-bg: var(--accent);
+  --btn-fg: #ffffff;
+  --btn-bd: var(--accent);
+}
+.btn--primary:hover { --btn-bg: var(--accent-strong); --btn-bd: var(--accent-strong); }
+/* The dark accent is a light turquoise, so filled buttons flip to dark ink. */
+:root[data-theme="dark"] .btn--primary { --btn-fg: #06252e; }
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="auto"] .btn--primary { --btn-fg: #06252e; }
+}
+
+.btn--outline { --btn-bg: var(--bg); }
+.btn--outline:hover { --btn-bd: var(--accent); --btn-fg: var(--accent); }
+
+.btn--ghost {
+  --btn-bg: transparent;
+  --btn-fg: var(--on-deep);
+  --btn-bd: var(--on-deep-line);
+}
+.btn--ghost:hover { --btn-bd: var(--on-deep); }
+
+.btn--small { padding: .6em 1.15em; font-size: .89rem; }
+
+.btn-row { display: flex; flex-wrap: wrap; gap: .7rem; }
+
+/* Panels ----------------------------------------------------------------- */
+
+/* The lead callout at the top of each policy — the one thing a reader who
+   scrolls no further should still take away. */
+.callout {
+  background: var(--accent-soft);
+  border: 1px solid transparent;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 1.15rem 1.4rem;
+  margin-block: 1.6rem;
+}
+.callout p { margin-bottom: .6em; }
+.callout__label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: .4rem;
+}
+
+/* Quiet bordered block for contact blocks and factual notes. */
+.panel {
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 1.15rem 1.4rem;
+  margin-block: 1.4rem;
+}
+.panel--warn {
+  background: var(--warn-bg);
+  border-color: var(--warn-line);
+}
+.panel--warn .panel__label { color: var(--warn); }
+.panel__label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: .45rem;
+}
+
+
+/* ==================================================== 5. HEADER & NAV ==== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: saturate(160%) blur(12px);
+  -webkit-backdrop-filter: saturate(160%) blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header__inner {
+  min-height: var(--header-h);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-block: .5rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  color: var(--ink-strong);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-right: auto;
+}
+.brand:hover { text-decoration: none; }
+.brand__logo {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  flex: 0 0 auto;
+  box-shadow: var(--shadow-sm);
+}
+.brand__text { font-size: 1.06rem; }
+.brand__sub {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.3;
+}
+
+.header-tools { display: flex; align-items: center; gap: .5rem; }
+
+/* Language pair. Unlike markono.dev these are links, not buttons — each
+   language is its own document here, which is what a legal page wants. */
+.lang-switch {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 2px;
+  background: var(--bg-alt);
+}
+.lang-switch__btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-family: var(--font-mono);
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  padding: .38em .72em;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color .18s ease, color .18s ease;
+}
+.lang-switch__btn:hover { color: var(--ink-strong); text-decoration: none; }
+.lang-switch__btn[aria-current="true"] {
+  background: var(--accent);
+  color: #fff;
+}
+.lang-switch__btn[aria-current="true"]:hover { color: #fff; }
+:root[data-theme="dark"] .lang-switch__btn[aria-current="true"],
+:root[data-theme="dark"] .lang-switch__btn[aria-current="true"]:hover { color: #06252e; }
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="auto"] .lang-switch__btn[aria-current="true"],
+  :root[data-theme="auto"] .lang-switch__btn[aria-current="true"]:hover { color: #06252e; }
+}
+
+.icon-btn {
+  appearance: none;
+  display: inline-grid;
+  place-items: center;
+  width: 38px; height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg-alt);
+  color: var(--muted);
+  cursor: pointer;
+  transition: color .18s ease, border-color .18s ease;
+}
+.icon-btn:hover { color: var(--ink-strong); border-color: var(--line-strong); }
+.icon-btn .icon { width: 18px; height: 18px; }
+
+/* Sun by day, moon by night — one is always hidden. */
+.icon--moon { display: none; }
+:root[data-theme="dark"] .icon--sun  { display: none; }
+:root[data-theme="dark"] .icon--moon { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="auto"] .icon--sun  { display: none; }
+  :root[data-theme="auto"] .icon--moon { display: block; }
+}
+
+@media (max-width: 520px) {
+  .brand__text { font-size: .98rem; }
+  .brand__sub { display: none; }
+}
+
+
+/* ======================================================== 6. DOC HERO ==== */
+
+/* The hero is a quiet tinted band, not a block of brand colour. It used to be a
+   full-strength field of the accent across the whole width, which shouted louder
+   than the text it framed. Instead of restyling every child, the block redefines
+   the three --on-deep tokens to the ordinary text tokens: every rule underneath
+   keeps working, and it resolves correctly in both themes at once. */
+.doc-hero {
+  --on-deep:      var(--ink-strong);
+  --on-deep-soft: var(--muted);
+  --on-deep-line: var(--line-strong);
+
+  background: var(--hero-bg);
+  color: var(--ink);
+  padding-block: clamp(2.25rem, 5vw, 3.25rem);
+  border-bottom: 1px solid var(--line-strong);
+}
+.doc-hero .kicker--onDark { color: var(--accent); }
+.doc-hero__inner { max-width: 52rem; }
+
+/* On a document page the prose starts after the contents rail, so the heading
+   has to start there too — otherwise the title floats a column to the left of
+   everything it introduces. Same grid, same gap, content in the second track. */
+.doc-hero--doc .doc-hero__inner {
+  max-width: none;
+  display: grid;
+  grid-template-columns: 15rem minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 3.5rem);
+}
+.doc-hero--doc .doc-hero__inner > * { grid-column: 2; max-width: 44rem; }
+@media (max-width: 900px) {
+  .doc-hero--doc .doc-hero__inner { display: block; }
+}
+.doc-hero h1 {
+  color: var(--on-deep);
+  font-size: clamp(1.9rem, 4.6vw, 2.85rem);
+  margin-bottom: .8rem;
+}
+.doc-hero__lead {
+  color: var(--on-deep-soft);
+  font-size: 1.09rem;
+  max-width: 44rem;
+}
+
+/* Facts under the title: app, version scope, last updated. */
+.doc-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1.6rem;
+  margin-top: 1.6rem;
+  padding-top: 1.3rem;
+  border-top: 1px solid var(--on-deep-line);
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  letter-spacing: .04em;
+  color: var(--on-deep-soft);
+}
+.doc-meta__item { display: flex; align-items: baseline; gap: .5rem; }
+.doc-meta__key { opacity: .62; text-transform: uppercase; letter-spacing: .12em; font-size: .7rem; }
+.doc-meta__val { color: var(--on-deep); font-weight: 600; }
+
+
+/* ==================================================== 7. LANDING PAGE ==== */
+
+.doc-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
+  gap: 1.1rem;
+  margin-top: 2rem;
+}
+
+.doc-card {
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.5rem 1.6rem;
+  color: var(--ink);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.doc-card:hover {
+  text-decoration: none;
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+}
+.doc-card__lang {
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.doc-card__title { font-size: 1.2rem; }
+.doc-card__text { color: var(--muted); font-size: .96rem; margin: 0; }
+.doc-card__go {
+  margin-top: auto;
+  padding-top: .9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: .93rem;
+}
+.doc-card:hover .doc-card__go .icon { transform: translateX(3px); }
+.doc-card__go .icon { width: 1em; height: 1em; transition: transform .18s ease; }
+
+/* Two-up contact strip at the bottom of the landing page. */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.1rem;
+  margin-top: 2rem;
+}
+.info-tile {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.35rem 1.5rem;
+}
+.info-tile h3 { font-size: 1.02rem; margin-bottom: .4rem; }
+.info-tile p { color: var(--muted); font-size: .95rem; margin: 0; }
+.info-tile a { font-weight: 600; }
+
+
+/* ================================================ 8. LEGAL DOCUMENTS ==== */
+
+.doc-layout {
+  display: grid;
+  grid-template-columns: 15rem minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: start;
+  padding-block: clamp(2.5rem, 6vw, 4rem);
+}
+@media (max-width: 900px) {
+  .doc-layout { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+}
+
+/* Contents rail. Sticky beside the text on desktop, a plain block above it on
+   small screens — a ten-section policy is otherwise a wall. */
+.toc {
+  position: sticky;
+  top: calc(var(--header-h) + 20px);
+  border-left: 2px solid var(--line);
+  padding-left: 1.1rem;
+}
+@media (max-width: 900px) {
+  .toc {
+    position: static;
+    border-left: 0;
+    padding: 1.2rem 1.4rem;
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+  }
+}
+.toc__title {
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: .8rem;
+}
+.toc__list { display: flex; flex-direction: column; gap: .1rem; }
+.toc__link {
+  display: block;
+  padding: .3rem 0;
+  color: var(--muted);
+  font-size: .93rem;
+  line-height: 1.4;
+  transition: color .16s ease;
+}
+.toc__link:hover { color: var(--accent); text-decoration: none; }
+.toc__num {
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  color: var(--accent);
+  margin-right: .45rem;
+}
+
+/* The prose itself. Measure is capped so long clauses stay readable. */
+.legal { max-width: 44rem; }
+
+.legal h2 {
+  font-size: clamp(1.25rem, 2.4vw, 1.5rem);
+  margin-top: 2.75rem;
+  margin-bottom: .85rem;
+  padding-bottom: .55rem;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: calc(var(--header-h) + 20px);
+}
+.legal > h2:first-child { margin-top: 0; }
+
+.legal h2 .legal__num {
+  font-family: var(--font-mono);
+  font-size: .78em;
+  color: var(--accent);
+  margin-right: .55rem;
+}
+
+.legal h3 {
+  font-size: 1.03rem;
+  margin-top: 1.6rem;
+  margin-bottom: .55rem;
+  color: var(--ink-strong);
+}
+
+.legal p { margin-bottom: 1em; }
+
+.legal ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  margin-bottom: 1.15em;
+}
+.legal ul li {
+  position: relative;
+  padding-left: 1.4rem;
+}
+.legal ul li::before {
+  content: "";
+  position: absolute;
+  left: .3rem;
+  top: .68em;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.legal ul ul { margin-top: .5rem; margin-bottom: 0; }
+
+.legal .callout ul,
+.legal .panel ul { margin-bottom: 0; }
+.legal .callout p:last-child,
+.legal .panel p:last-child { margin-bottom: 0; }
+
+/* App permissions — three cards, each with a stroke icon in the header. The
+   emoji the old page used are replaced by icons from the markono.dev set so
+   both languages render identically on every platform. */
+.perm-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+  margin-block: 1.4rem;
+}
+.perm-card {
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 1.2rem 1.3rem;
+}
+.perm-card__head {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin-bottom: .7rem;
+  padding-bottom: .7rem;
+  border-bottom: 1px solid var(--line);
+}
+.perm-card__head .icon { color: var(--accent); width: 1.3em; height: 1.3em; }
+.perm-card__head h3 { margin: 0; font-size: .99rem; }
+.perm-card p { font-size: .93rem; margin-bottom: .55em; }
+.perm-card p:last-child { margin-bottom: 0; }
+.perm-card .perm-card__key {
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+}
+
+/* Back link above the hero on sub-pages. */
+.backlink {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  color: var(--on-deep-soft);
+  font-size: .92rem;
+  font-weight: 600;
+  margin-bottom: 1.4rem;
+}
+.backlink:hover { color: var(--on-deep); text-decoration: none; }
+.backlink .icon { width: 1em; height: 1em; }
+.backlink:hover .icon { transform: translateX(-3px); }
+.backlink .icon { transition: transform .18s ease; }
+
+/* Foot of a legal document — the revision line, quiet. */
+.legal__foot {
+  margin-top: 3rem;
+  padding-top: 1.3rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .89rem;
+}
+
+/* The bilingual deletion page stacks two language blocks; this rules them off. */
+.lang-block + .lang-block {
+  margin-top: 3.5rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--line);
+}
+.lang-block__tag {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 999px;
+  padding: .3em .8em;
+  margin-bottom: 1rem;
+}
+
+
+/* =========================================================== 9. FOOTER ==== */
+
+.site-footer {
+  background: var(--bg-deep-2);
+  color: var(--on-deep-soft);
+  border-top: 1px solid var(--on-deep-line);
+  padding-block: 2.25rem;
+  font-size: .89rem;
+}
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.4rem 2rem;
+}
+.site-footer__brand { display: flex; flex-direction: column; gap: .15rem; }
+.site-footer__brand .brand__text { color: var(--on-deep); font-weight: 700; font-size: 1rem; }
+.site-footer__tagline { color: var(--on-deep-soft); font-size: .84rem; }
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3rem 1.3rem;
+}
+.site-footer__links a { color: var(--on-deep-soft); font-weight: 600; }
+.site-footer__links a:hover { color: var(--on-deep); }
+.site-footer__meta { display: flex; flex-direction: column; gap: .15rem; }
+.site-footer__built { opacity: .7; font-size: .82rem; }
+
+
+/* ================================================= 10. MOTION & PRINT ==== */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    transition-duration: .001ms !important;
+  }
+}
+
+/* A privacy policy gets printed and filed more often than most pages — make
+   that copy readable rather than a screenshot of a dark website. */
+@media print {
+  .site-header, .toc, .site-footer, .backlink, .btn-row { display: none !important; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  .doc-hero { background: #fff; color: #000; border-bottom: 1px solid #999; padding-block: 0 1rem; }
+  .doc-hero h1, .doc-meta__val { color: #000; }
+  .doc-meta { color: #444; border-top-color: #ccc; }
+  .doc-layout { display: block; padding-block: 1rem; }
+  .legal { max-width: none; }
+  .legal h2 { page-break-after: avoid; border-bottom-color: #999; }
+  .perm-grid { display: block; }
+  .perm-card, .panel, .callout { page-break-inside: avoid; border: 1px solid #bbb; background: #fff; }
+  a { color: #000; text-decoration: underline; }
+}

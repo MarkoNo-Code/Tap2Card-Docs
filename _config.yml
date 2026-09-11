@@ -1,0 +1,5 @@
+# Repo notes stay on GitHub; the site serves only the HTML pages.
+# Without this, GitHub Pages renders README.md / TODO.md as public pages.
+exclude:
+  - README.md
+  - TODO.md

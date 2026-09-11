@@ -1,243 +1,331 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-theme="auto">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datenschutzerklärung - Tap2Card App</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f8f9fa;
-            color: #333;
-        }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 3px solid #2563EB;
-        }
-        .app-icon {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, #2563EB, #60A5FA);
-            border-radius: 16px;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            color: white;
-            font-weight: bold;
-        }
-        h1 {
-            color: #2563EB;
-            margin: 0;
-            font-size: 2.2em;
-        }
-        h2 {
-            color: #1D4ED8;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            font-size: 1.4em;
-            border-left: 4px solid #2563EB;
-            padding-left: 15px;
-        }
-        .highlight {
-            background-color: #EFF6FF;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid #2563EB;
-            margin: 20px 0;
-        }
-        .permission-box {
-            background: #FEF3C7;
-            border: 1px solid #FCD34D;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 15px 0;
-        }
-        .contact-info {
-            background: #F0F9FF;
-            border: 1px solid #7DD3FC;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 8px;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #e5e7eb;
-            color: #6b7280;
-            font-size: 0.9em;
-        }
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-            .container {
-                padding: 20px;
-            }
-            h1 {
-                font-size: 1.8em;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Datenschutzerklärung — Tap2Card</title>
+<meta name="description" content="Datenschutzerklärung für Tap2Card, die App für digitale Visitenkarten: welche Daten erhoben werden, welche Berechtigungen die App braucht und wie Sie Ihr Konto löschen.">
+<meta name="author" content="Marko Nonninger">
+<link rel="canonical" href="https://markono-code.github.io/Tap2Card-Docs/datenschutzerklaerung.html">
+
+<link rel="alternate" hreflang="de" href="https://markono-code.github.io/Tap2Card-Docs/datenschutzerklaerung.html">
+<link rel="alternate" hreflang="en" href="https://markono-code.github.io/Tap2Card-Docs/privacy-policy.html">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://markono-code.github.io/Tap2Card-Docs/datenschutzerklaerung.html">
+<meta property="og:title" content="Datenschutzerklärung — Tap2Card">
+<meta property="og:description" content="Welche Daten Tap2Card erhebt, wie sie verwendet werden und wie Sie Ihr Konto löschen.">
+
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101b21" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/docs.css">
+
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("markono.theme");
+      if (t === "light" || t === "dark" || t === "auto") {
+        document.documentElement.setAttribute("data-theme", t);
+      }
+    } catch (e) { /* Privatmodus — der Standardwert "auto" im Markup bleibt */ }
+  })();
+</script>
 </head>
+
 <body>
-    <div class="container">
-        <a href="index.html" style="display: inline-block; padding: 15px 20px; color: #2563EB; text-decoration: none; font-weight: 500;">&larr; Zurück zur Übersicht</a>
-        <div class="header">
-            <div class="app-icon">T</div>
-            <h1>Datenschutzerklärung</h1>
-            <p><strong>Tap2Card - Digitale Visitenkarten App</strong></p>
-            <p>Stand: 15. März 2026</p>
-        </div>
 
-        <div class="highlight">
-            <strong>Kurzzusammenfassung:</strong> Die Tap2Card App sammelt nur die Daten, die Sie bewusst eingeben (Visitenkarten-Informationen, Profilbilder). Wir verkaufen keine Daten und teilen sie nicht ohne Ihre Zustimmung.
-        </div>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
 
-        <h2>1. Verantwortlicher</h2>
-        <div class="contact-info">
-            <p><strong>Marko Nonninger</strong><br>
-            Entwickler der Tap2Card App<br>
-            Deutschland</p>
-            <p><strong>Kontakt:</strong> Über die App-Bewertungen im Google Play Store oder GitHub Issues</p>
-        </div>
+<!-- ============================================================ HEADER ==== -->
+<header class="site-header">
+  <div class="shell site-header__inner">
 
-        <h2>2. Welche Daten sammeln wir?</h2>
-        <p>Die Tap2Card App sammelt folgende Daten:</p>
+    <a class="brand" href="./" aria-label="Tap2Card Dokumentation — Startseite">
+      <img class="brand__logo" src="assets/img/tap2card-icon.svg" alt="" width="30" height="30">
+      <span>
+        <span class="brand__text">Tap2Card</span>
+        <span class="brand__sub">Recht &amp; Datenschutz</span>
+      </span>
+    </a>
 
-        <h3>Von Ihnen eingegebene Daten:</h3>
-        <ul>
-            <li><strong>Visitenkarten-Informationen:</strong> Name, Berufsbezeichnung, Unternehmen, E-Mail-Adresse, Telefonnummer, Website, Adresse</li>
-            <li><strong>Profilbilder:</strong> Fotos für Ihre digitale Visitenkarte</li>
-            <li><strong>Empfangene Visitenkarten:</strong> Kontaktdaten von anderen Nutzern, die per NFC, QR-Code oder Link geteilt wurden</li>
-        </ul>
+    <div class="header-tools">
+      <div class="lang-switch" role="group" aria-label="Sprache">
+        <a class="lang-switch__btn" href="privacy-policy.html" hreflang="en">EN</a>
+        <a class="lang-switch__btn" href="datenschutzerklaerung.html" hreflang="de" aria-current="true">DE</a>
+      </div>
 
-        <h3>Technische Daten:</h3>
-        <ul>
-            <li><strong>Kontoinformationen:</strong> E-Mail-Adresse zur Authentifizierung</li>
-            <li><strong>Geräteinformationen:</strong> Android-Version, App-Version</li>
-        </ul>
-
-        <h2>3. App-Berechtigungen</h2>
-        <p>Die App benötigt folgende Berechtigungen:</p>
-
-        <div class="permission-box">
-            <h3>📡 NFC-Berechtigung</h3>
-            <p><strong>Zweck:</strong> Ermöglicht das Teilen und Empfangen von Visitenkarten durch Berühren zweier Geräte oder das Beschreiben von NFC-Tags</p>
-            <p><strong>Verwendung:</strong> NFC wird nur aktiviert, wenn Sie die Tap-to-Share- oder Write-to-Tag-Funktion nutzen</p>
-        </div>
-
-        <div class="permission-box">
-            <h3>📷 Kamera-Berechtigung</h3>
-            <p><strong>Zweck:</strong> Ermöglicht das Scannen von QR-Codes zum Empfangen von Visitenkarten und das Aufnehmen von Profilbildern</p>
-            <p><strong>Verwendung:</strong> Die Kamera wird nur aktiviert, wenn Sie den QR-Scanner oder die Profilbild-Funktion verwenden</p>
-        </div>
-
-        <div class="permission-box">
-            <h3>🌐 Internet-Berechtigung</h3>
-            <p><strong>Zweck:</strong> Synchronisierung Ihrer Visitenkarten-Daten mit dem Cloud-Backend</p>
-            <p><strong>Verwendung:</strong> Für Authentifizierung, Datenspeicherung und das Teilen von Visitenkarten über Links</p>
-        </div>
-
-        <h2>4. Wie verwenden wir Ihre Daten?</h2>
-        <ul>
-            <li><strong>App-Funktionalität:</strong> Zur Erstellung, Speicherung und Weitergabe Ihrer digitalen Visitenkarte</li>
-            <li><strong>Kontaktverwaltung:</strong> Speicherung empfangener Visitenkarten in Ihrer persönlichen Kontaktliste</li>
-            <li><strong>Teilen:</strong> Bereitstellung Ihrer Visitenkarte über NFC, QR-Code oder teilbare Links</li>
-            <li><strong>Support:</strong> Behebung von technischen Problemen</li>
-        </ul>
-
-        <h2>5. Datenweitergabe</h2>
-        <p><strong>Wir verkaufen Ihre Daten nicht!</strong></p>
-        <p>Ihre Daten werden nur in folgenden Fällen geteilt:</p>
-        <ul>
-            <li><strong>Visitenkarten-Austausch:</strong> Wenn Sie Ihre Visitenkarte bewusst mit anderen Nutzern teilen (per NFC, QR-Code oder Link)</li>
-            <li><strong>Technische Dienstleister:</strong> Nur zur App-Bereitstellung (Supabase für Backend-Services und Datenspeicherung)</li>
-            <li><strong>Rechtliche Anforderungen:</strong> Wenn gesetzlich vorgeschrieben</li>
-        </ul>
-
-        <h2>6. Datensicherheit</h2>
-        <ul>
-            <li>Verschlüsselte Datenübertragung (HTTPS/TLS)</li>
-            <li>Sichere Cloud-Infrastruktur (Supabase)</li>
-            <li>Row Level Security (RLS) zum Schutz Ihrer Daten vor unbefugtem Zugriff</li>
-            <li>Lokale Datenspeicherung auf Ihrem Gerät</li>
-            <li>Keine Speicherung sensibler Zahlungsdaten</li>
-        </ul>
-
-        <h2>7. Ihre Rechte</h2>
-        <p>Sie haben folgende Rechte bezüglich Ihrer Daten:</p>
-        <ul>
-            <li><strong>Auskunft:</strong> Information über gespeicherte Daten</li>
-            <li><strong>Berichtigung:</strong> Korrektur falscher Daten</li>
-            <li><strong>Löschung:</strong> Löschung Ihrer Daten</li>
-            <li><strong>Datenübertragbarkeit:</strong> Export Ihrer Daten</li>
-            <li><strong>Widerspruch:</strong> Widerspruch gegen Datenverarbeitung</li>
-        </ul>
-
-        <h2>8. Änderungen der Datenschutzerklärung</h2>
-        <p>Wir können diese Datenschutzerklärung gelegentlich aktualisieren. Änderungen werden in der App und auf dieser Seite bekannt gegeben.</p>
-
-        <h2>9. Konto und Daten löschen</h2>
-        <div class="highlight">
-            <p><strong>Sie haben jederzeit das Recht, Ihr Konto und alle damit verbundenen Daten vollständig zu löschen.</strong></p>
-        </div>
-
-        <h3>Wie Sie Ihr Konto löschen können:</h3>
-        <ul>
-            <li><strong>Direkt in der App (empfohlen):</strong> Gehen Sie zu <strong>Einstellungen &rarr; Konto löschen</strong> und bestätigen Sie</li>
-            <li><strong>Per E-Mail-Anfrage:</strong> Falls Sie keinen Zugriff mehr auf die App haben, kontaktieren Sie uns über die unten genannten Kanäle</li>
-            <li><strong>30 Tage Widerrufsfrist:</strong> Ihr Konto wird zur Löschung vorgemerkt und Sie werden abgemeldet. Innerhalb von 30 Tagen können Sie die Löschung abbrechen, indem Sie sich einfach wieder anmelden; danach wird es endgültig gelöscht</li>
-        </ul>
-        <p>Weitere Details finden Sie auf unserer <a href="delete-account/">Seite zur Kontolöschung</a>.</p>
-
-        <h3>Was wird gelöscht:</h3>
-        <ul>
-            <li>Ihr Benutzerkonto und Anmeldedaten</li>
-            <li>Ihre erstellte Visitenkarte und alle zugehörigen Informationen</li>
-            <li>Hochgeladene Profilbilder</li>
-            <li>Empfangene Visitenkarten in Ihrer Kontaktliste</li>
-            <li>Alle anderen mit Ihrem Konto verknüpften Daten</li>
-        </ul>
-
-        <div class="contact-info">
-            <p><strong>Wichtiger Hinweis:</strong> Die Löschung ist unwiderruflich. Nach der Löschung können Ihre Daten nicht wiederhergestellt werden.</p>
-        </div>
-
-        <h2>10. Kontakt</h2>
-        <div class="contact-info">
-            <p>Bei Fragen zur Datenschutzerklärung, Ihren Daten oder für Löschungsanfragen kontaktieren Sie uns:</p>
-            <ul>
-                <li>E-Mail: <a href="mailto:tap2card@markono.dev">tap2card@markono.dev</a></li>
-                <li>Über die Bewertungen im Google Play Store</li>
-            </ul>
-            <p><strong>Für Konto-Löschungen:</strong> Geben Sie Ihre registrierte E-Mail-Adresse an, damit wir Ihr Konto eindeutig identifizieren können.</p>
-        </div>
-
-        <div class="footer">
-            <p>&copy; 2026 Tap2Card App by Marko Nonninger. Diese Datenschutzerklärung wurde erstellt für die Compliance mit Google Play Store Richtlinien.</p>
-            <p>Letzte Aktualisierung: 15. März 2026</p>
-        </div>
+      <button type="button" class="icon-btn" id="themeToggle"
+              aria-label="Farbschema: automatisch" title="Farbschema: automatisch">
+        <svg class="icon icon--sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="4.2"/>
+          <path d="M12 2.2v2.4M12 19.4v2.4M2.2 12h2.4M19.4 12h2.4M5.1 5.1l1.7 1.7M17.2 17.2l1.7 1.7M18.9 5.1l-1.7 1.7M6.8 17.2l-1.7 1.7"/>
+        </svg>
+        <svg class="icon icon--moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M20.5 14.8A8.6 8.6 0 0 1 9.2 3.5a8.6 8.6 0 1 0 11.3 11.3z"/>
+        </svg>
+      </button>
     </div>
+
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ========================================================== HERO ==== -->
+  <section class="doc-hero doc-hero--doc">
+    <div class="shell doc-hero__inner">
+      <a class="backlink" href="./">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M19 12H6M11.5 5.5 5 12l6.5 6.5"/>
+        </svg>
+        Zurück zur Übersicht
+      </a>
+
+      <p class="kicker kicker--onDark">Datenschutz</p>
+      <h1>Datenschutzerklärung</h1>
+      <p class="doc-hero__lead">
+        Tap2Card — App für digitale Visitenkarten, für Android und iOS. Diese
+        Erklärung beschreibt, welche Daten die App erhebt, warum sie jede
+        Berechtigung benötigt und welche Rechte Sie haben.
+      </p>
+
+      <div class="doc-meta">
+        <span class="doc-meta__item">
+          <span class="doc-meta__key">Stand</span>
+          <span class="doc-meta__val"><time datetime="2026-09-09">9. September 2026</time></span>
+        </span>
+        <span class="doc-meta__item">
+          <span class="doc-meta__key">Gilt für</span>
+          <span class="doc-meta__val">Android &amp; iOS</span>
+        </span>
+        <span class="doc-meta__item">
+          <span class="doc-meta__key">Sprache</span>
+          <span class="doc-meta__val">Deutsch · <a href="privacy-policy.html" hreflang="en">English</a></span>
+        </span>
+        <span class="doc-meta__item">
+          <span class="doc-meta__key">Kontakt</span>
+          <span class="doc-meta__val"><a href="mailto:tap2card@markono.dev">tap2card@markono.dev</a></span>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================== BODY ==== -->
+  <div class="shell doc-layout">
+
+    <!-- Inhaltsverzeichnis -------------------------------------------- -->
+    <aside class="toc" aria-labelledby="toc-title">
+      <p class="toc__title" id="toc-title">Inhalt</p>
+      <nav class="toc__list">
+        <a class="toc__link" href="#verantwortlicher"><span class="toc__num">01</span>Verantwortlicher</a>
+        <a class="toc__link" href="#daten"><span class="toc__num">02</span>Welche Daten sammeln wir?</a>
+        <a class="toc__link" href="#berechtigungen"><span class="toc__num">03</span>App-Berechtigungen</a>
+        <a class="toc__link" href="#verwendung"><span class="toc__num">04</span>Verwendung Ihrer Daten</a>
+        <a class="toc__link" href="#weitergabe"><span class="toc__num">05</span>Datenweitergabe</a>
+        <a class="toc__link" href="#sicherheit"><span class="toc__num">06</span>Datensicherheit</a>
+        <a class="toc__link" href="#rechte"><span class="toc__num">07</span>Ihre Rechte</a>
+        <a class="toc__link" href="#aenderungen"><span class="toc__num">08</span>Änderungen</a>
+        <a class="toc__link" href="#loeschung"><span class="toc__num">09</span>Konto und Daten löschen</a>
+        <a class="toc__link" href="#kontakt"><span class="toc__num">10</span>Kontakt</a>
+      </nav>
+    </aside>
+
+    <!-- Die Erklärung -------------------------------------------------- -->
+    <article class="legal">
+
+      <div class="callout">
+        <span class="callout__label">Kurzzusammenfassung</span>
+        <p>
+          Die Tap2Card App sammelt nur die Daten, die Sie bewusst eingeben
+          (Visitenkarten-Informationen, Profilbilder). Wir verkaufen keine Daten
+          und teilen sie nicht ohne Ihre Zustimmung.
+        </p>
+      </div>
+
+      <h2 id="verantwortlicher"><span class="legal__num">01</span>Verantwortlicher</h2>
+      <div class="panel">
+        <p>
+          <strong>Marko Nonninger</strong><br>
+          Entwickler der Tap2Card App<br>
+          Winterthur, Schweiz
+        </p>
+        <p><strong>Kontakt:</strong> <a href="mailto:tap2card@markono.dev">tap2card@markono.dev</a></p>
+      </div>
+
+      <h2 id="daten"><span class="legal__num">02</span>Welche Daten sammeln wir?</h2>
+      <p>Die Tap2Card App sammelt folgende Daten:</p>
+
+      <h3>Von Ihnen eingegebene Daten</h3>
+      <ul>
+        <li><strong>Visitenkarten-Informationen:</strong> Name, Berufsbezeichnung, Unternehmen, E-Mail-Adresse, Telefonnummer, Website, Adresse</li>
+        <li><strong>Profilbilder:</strong> Fotos für Ihre digitale Visitenkarte</li>
+        <li><strong>Empfangene Visitenkarten:</strong> Kontaktdaten von anderen Nutzern, die per NFC, QR-Code oder Link geteilt wurden</li>
+      </ul>
+
+      <h3>Technische Daten</h3>
+      <ul>
+        <li><strong>Kontoinformationen:</strong> E-Mail-Adresse zur Authentifizierung. Die Anmeldung ist per E-Mail und Passwort, mit &bdquo;Mit Apple anmelden&ldquo; oder mit einem Google-Konto möglich.</li>
+        <li><strong>Geräteinformationen:</strong> Betriebssystem-Version (Android oder iOS), App-Version</li>
+      </ul>
+
+      <h2 id="berechtigungen"><span class="legal__num">03</span>App-Berechtigungen</h2>
+      <p>Die App benötigt folgende Berechtigungen:</p>
+
+      <div class="perm-grid">
+        <div class="perm-card">
+          <div class="perm-card__head">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M5.6 5.6a9 9 0 0 0 0 12.8M8.5 8.5a5 5 0 0 0 0 7M18.4 5.6a9 9 0 0 1 0 12.8M15.5 8.5a5 5 0 0 1 0 7"/>
+              <circle cx="12" cy="12" r="1.6"/>
+            </svg>
+            <h3>NFC-Berechtigung</h3>
+          </div>
+          <p><span class="perm-card__key">Zweck</span> Ermöglicht das Teilen und Empfangen von Visitenkarten durch Berühren zweier Geräte oder das Beschreiben von NFC-Tags. Unter iOS läuft der Austausch zwischen zwei Geräten über Bluetooth; NFC dient dort dem Beschreiben von Tags.</p>
+          <p><span class="perm-card__key">Verwendung</span> NFC wird nur aktiviert, wenn Sie die Tap-to-Share- oder Write-to-Tag-Funktion nutzen</p>
+        </div>
+
+        <div class="perm-card">
+          <div class="perm-card__head">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M3.5 8.5A1.5 1.5 0 0 1 5 7h2.4l1.3-2h6.6l1.3 2H19a1.5 1.5 0 0 1 1.5 1.5v9A1.5 1.5 0 0 1 19 19H5a1.5 1.5 0 0 1-1.5-1.5z"/>
+              <circle cx="12" cy="12.8" r="3.4"/>
+            </svg>
+            <h3>Kamera-Berechtigung</h3>
+          </div>
+          <p><span class="perm-card__key">Zweck</span> Ermöglicht das Scannen von QR-Codes zum Empfangen von Visitenkarten und das Aufnehmen von Profilbildern</p>
+          <p><span class="perm-card__key">Verwendung</span> Die Kamera wird nur aktiviert, wenn Sie den QR-Scanner oder die Profilbild-Funktion verwenden</p>
+        </div>
+
+        <div class="perm-card">
+          <div class="perm-card__head">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="8.6"/>
+              <path d="M3.4 12h17.2M12 3.4c2.2 2.4 3.4 5.4 3.4 8.6s-1.2 6.2-3.4 8.6c-2.2-2.4-3.4-5.4-3.4-8.6S9.8 5.8 12 3.4z"/>
+            </svg>
+            <h3>Internet-Berechtigung</h3>
+          </div>
+          <p><span class="perm-card__key">Zweck</span> Synchronisierung Ihrer Visitenkarten-Daten mit dem Cloud-Backend</p>
+          <p><span class="perm-card__key">Verwendung</span> Für Authentifizierung, Datenspeicherung und das Teilen von Visitenkarten über Links</p>
+        </div>
+      </div>
+
+      <h2 id="verwendung"><span class="legal__num">04</span>Wie verwenden wir Ihre Daten?</h2>
+      <ul>
+        <li><strong>App-Funktionalität:</strong> Zur Erstellung, Speicherung und Weitergabe Ihrer digitalen Visitenkarte</li>
+        <li><strong>Kontaktverwaltung:</strong> Speicherung empfangener Visitenkarten in Ihrer persönlichen Kontaktliste</li>
+        <li><strong>Teilen:</strong> Bereitstellung Ihrer Visitenkarte über NFC, QR-Code oder teilbare Links</li>
+        <li><strong>Support:</strong> Behebung von technischen Problemen</li>
+      </ul>
+
+      <h2 id="weitergabe"><span class="legal__num">05</span>Datenweitergabe</h2>
+      <p><strong>Wir verkaufen Ihre Daten nicht!</strong></p>
+      <p>Ihre Daten werden nur in folgenden Fällen geteilt:</p>
+      <ul>
+        <li><strong>Visitenkarten-Austausch:</strong> Wenn Sie Ihre Visitenkarte bewusst mit anderen Nutzern teilen (per NFC, QR-Code oder Link)</li>
+        <li><strong>Technische Dienstleister:</strong> Nur zur App-Bereitstellung (Supabase für Backend-Services und Datenspeicherung)</li>
+        <li><strong>Rechtliche Anforderungen:</strong> Wenn gesetzlich vorgeschrieben</li>
+      </ul>
+
+      <h2 id="sicherheit"><span class="legal__num">06</span>Datensicherheit</h2>
+      <ul>
+        <li>Verschlüsselte Datenübertragung (HTTPS/TLS)</li>
+        <li>Sichere Cloud-Infrastruktur (Supabase)</li>
+        <li>Row Level Security (RLS) zum Schutz Ihrer Daten vor unbefugtem Zugriff</li>
+        <li>Lokale Datenspeicherung auf Ihrem Gerät</li>
+        <li>Keine Speicherung sensibler Zahlungsdaten</li>
+      </ul>
+
+      <h2 id="rechte"><span class="legal__num">07</span>Ihre Rechte</h2>
+      <p>Sie haben folgende Rechte bezüglich Ihrer Daten:</p>
+      <ul>
+        <li><strong>Auskunft:</strong> Information über gespeicherte Daten</li>
+        <li><strong>Berichtigung:</strong> Korrektur falscher Daten</li>
+        <li><strong>Löschung:</strong> Löschung Ihrer Daten</li>
+        <li><strong>Datenübertragbarkeit:</strong> Export Ihrer Daten</li>
+        <li><strong>Widerspruch:</strong> Widerspruch gegen Datenverarbeitung</li>
+      </ul>
+
+      <h2 id="aenderungen"><span class="legal__num">08</span>Änderungen der Datenschutzerklärung</h2>
+      <p>
+        Wir können diese Datenschutzerklärung gelegentlich aktualisieren.
+        Änderungen werden in der App und auf dieser Seite bekannt gegeben.
+      </p>
+
+      <h2 id="loeschung"><span class="legal__num">09</span>Konto und Daten löschen</h2>
+      <div class="callout">
+        <p><strong>Sie haben jederzeit das Recht, Ihr Konto und alle damit verbundenen Daten vollständig zu löschen.</strong></p>
+      </div>
+
+      <h3>Wie Sie Ihr Konto löschen können</h3>
+      <ul>
+        <li><strong>Direkt in der App (empfohlen):</strong> Gehen Sie zu <strong>Einstellungen &rarr; Konto löschen</strong> und bestätigen Sie</li>
+        <li><strong>Per E-Mail-Anfrage:</strong> Falls Sie keinen Zugriff mehr auf die App haben, kontaktieren Sie uns über die unten genannten Kanäle</li>
+        <li><strong>30 Tage Widerrufsfrist:</strong> Ihr Konto wird zur Löschung vorgemerkt und Sie werden abgemeldet. Innerhalb von 30 Tagen können Sie die Löschung abbrechen, indem Sie sich einfach wieder anmelden; danach wird es endgültig gelöscht</li>
+        <li><strong>&bdquo;Mit Apple anmelden&ldquo;:</strong> Haben Sie sich mit Apple angemeldet, wird diese Verknüpfung bei der endgültigen Löschung in Ihrem Namen bei Apple widerrufen</li>
+      </ul>
+      <p>Weitere Details finden Sie auf unserer <a href="delete-account/">Seite zur Kontolöschung</a>.</p>
+
+      <h3>Was wird gelöscht</h3>
+      <ul>
+        <li>Ihr Benutzerkonto und Anmeldedaten</li>
+        <li>Ihre erstellte Visitenkarte und alle zugehörigen Informationen</li>
+        <li>Hochgeladene Profilbilder</li>
+        <li>Empfangene Visitenkarten in Ihrer Kontaktliste</li>
+        <li>Alle anderen mit Ihrem Konto verknüpften Daten</li>
+      </ul>
+
+      <div class="panel panel--warn">
+        <span class="panel__label">Wichtiger Hinweis</span>
+        <p>Die Löschung ist unwiderruflich. Nach der Löschung können Ihre Daten nicht wiederhergestellt werden.</p>
+      </div>
+
+      <h2 id="kontakt"><span class="legal__num">10</span>Kontakt</h2>
+      <div class="panel">
+        <p>Bei Fragen zur Datenschutzerklärung, Ihren Daten oder für Löschungsanfragen kontaktieren Sie uns:</p>
+        <ul>
+          <li>E-Mail: <a href="mailto:tap2card@markono.dev">tap2card@markono.dev</a></li>
+          <li>Über die Bewertungen im Google Play Store oder im App Store</li>
+        </ul>
+        <p><strong>Für Konto-Löschungen:</strong> Geben Sie Ihre registrierte E-Mail-Adresse an, damit wir Ihr Konto eindeutig identifizieren können.</p>
+      </div>
+
+      <p class="legal__foot">
+        &copy; <span id="year">2026</span> Tap2Card App by Marko Nonninger. Diese
+        Datenschutzerklärung wurde erstellt für die Anforderungen von Google Play
+        und dem Apple App Store.<br>
+        Letzte Aktualisierung: <time datetime="2026-09-09">9. September 2026</time>
+      </p>
+
+    </article>
+  </div>
+
+</main>
+
+<!-- ============================================================ FOOTER ==== -->
+<footer class="site-footer">
+  <div class="shell site-footer__inner">
+    <div class="site-footer__brand">
+      <span class="brand__text">Tap2Card</span>
+      <span class="site-footer__tagline">Visitenkarten digital teilen</span>
+    </div>
+
+    <nav class="site-footer__links" aria-label="Dokumente">
+      <a href="./">Übersicht</a>
+      <a href="privacy-policy.html" hreflang="en">Privacy Policy</a>
+      <a href="delete-account/">Konto löschen</a>
+      <a href="https://markono.dev/" rel="noopener">markono.dev</a>
+    </nav>
+
+    <div class="site-footer__meta">
+      <span>&copy; 2026 Marko Nonninger. Alle Rechte vorbehalten.</span>
+      <span class="site-footer__built">Handgebaut. Kein Tracking, keine Cookies.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/docs.js"></script>
 </body>
 </html>
